@@ -43,7 +43,6 @@ export function analyzeIntent(
   const lowerMessage = message.toLowerCase()
   const matches: Array<[Intent, number]> = []
 
-  // Score each intent based on keyword matches
   for (const [intent, pattern] of Object.entries(INTENT_PATTERNS)) {
     if (intent === 'general') continue
 
@@ -60,16 +59,13 @@ export function analyzeIntent(
     }
   }
 
-  // Mode-specific bias
   if (mode === 'home') {
-    // Boost dream and story intents in home mode
     matches.forEach(([intent, conf]) => {
       if (intent === 'dream' || intent === 'story') {
         matches[matches.findIndex((m) => m[0] === intent)] = [intent, Math.min(conf * 1.2, 1)]
       }
     })
   } else if (mode === 'business') {
-    // Boost campaign and poster intents in business mode
     matches.forEach(([intent, conf]) => {
       if (intent === 'campaign' || intent === 'poster') {
         matches[matches.findIndex((m) => m[0] === intent)] = [intent, Math.min(conf * 1.2, 1)]
@@ -77,7 +73,6 @@ export function analyzeIntent(
     })
   }
 
-  // Prefer previous intents for continuity
   if (previousIntents && previousIntents.length > 0) {
     const lastIntent = previousIntents[previousIntents.length - 1]
     const existingMatch = matches.find((m) => m[0] === lastIntent)
@@ -86,7 +81,6 @@ export function analyzeIntent(
     }
   }
 
-  // Sort by confidence
   matches.sort((a, b) => b[1] - a[1])
 
   const topMatch = matches[0]
