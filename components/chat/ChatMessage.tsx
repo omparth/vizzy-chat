@@ -1,4 +1,3 @@
-//components/chat/ChatMessage.tsx
 'use client'
 
 import { useState } from 'react'
@@ -69,23 +68,19 @@ export function ChatMessage({ message, onRefine }: ChatMessageProps) {
     </div>
   </div>
 )}
-      {/* Content */}
       <div className="flex-1 min-w-0">
-        {/* Text */}
         <div className="text-black dark:text-white mb-3 leading-8 font-normal text-base whitespace-pre-wrap">  {isUser ? (
     <p>{message.content}</p>
   ) : (
     <StreamingText text={message.content} />
   )}
 </div>
-        {/* Card if present */}
         {message.cardData && (
           <div className="mb-3">
             <CardRenderer data={message.cardData} />
           </div>
         )}
 
-        {/* Action Buttons */}
         <div className="flex gap-2 items-center flex-wrap">
           <Button
             variant="ghost"
