@@ -16,7 +16,6 @@ interface CardRendererProps {
 }
 
 export function CardRenderer({ data }: CardRendererProps) {
-  // Centralized wrapper logic to avoid repeating motion markup across components
   const renderCard = () => {
     switch (data.type) {
       case 'image-generation':
@@ -44,7 +43,7 @@ export function CardRenderer({ data }: CardRendererProps) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ 
         duration: 0.35, 
-        ease: [0.16, 1, 0.3, 1] // Premium Apple-style cubic bezier ease
+        ease: [0.16, 1, 0.3, 1] 
       }}
       className="w-full mt-3 clear-both flex flex-col items-start"
     >
