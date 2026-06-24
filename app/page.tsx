@@ -103,7 +103,6 @@ export default function Page() {
 
   return (
     <div className="flex h-screen bg-background text-foreground overflow-hidden font-sans antialiased">
-      {/* Mobile Header */}
       <div className="md:hidden absolute top-0 left-0 right-0 h-14 border-b bg-background flex items-center justify-between px-4 z-40">
         <button onClick={() => setMobileSidebarOpen(true)}>
           <Menu className="w-5 h-5" />
@@ -114,7 +113,6 @@ export default function Page() {
         </span>
       </div>
   
-      {/* Desktop Sidebar */}
       <div className="hidden md:flex">
         <Sidebar
           conversations={chat.conversations}
@@ -134,7 +132,6 @@ export default function Page() {
         />
       </div>
   
-      {/* Mobile Sidebar Drawer */}
       {mobileSidebarOpen && (
         <div className="fixed inset-0 z-50 md:hidden">
   
