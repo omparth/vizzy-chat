@@ -15,7 +15,6 @@ export function MoodboardCard({ data }: MoodboardCardProps) {
   return (
     <Card className="p-5 bg-zinc-50/60 dark:bg-[#17171c] border border-zinc-200/80 dark:border-zinc-800/60 rounded-2xl shadow-none w-full max-w-2xl overflow-hidden backdrop-blur-md">
       
-      {/* Header with Luxury Agency Vibe */}
       <div className="flex items-center gap-2 mb-3.5">
         <div className="p-2 bg-indigo-50 dark:bg-[#202026] text-indigo-500 dark:text-purple-400 rounded-xl border border-indigo-100/30 dark:border-zinc-700/30">
           <Palette className="w-4 h-4" />
@@ -25,7 +24,6 @@ export function MoodboardCard({ data }: MoodboardCardProps) {
         </h3>
       </div>
 
-      {/* Premium Minimalist Tokens */}
       <div className="mb-5 flex flex-wrap gap-1.5">
         {data.moodKeywords.map((keyword) => (
           <Badge 
@@ -38,14 +36,13 @@ export function MoodboardCard({ data }: MoodboardCardProps) {
         ))}
       </div>
 
-      {/* Dynamic Visual Curation Grid */}
       <div className="grid grid-cols-2 gap-3 mb-4">
         {data.images.map((image, idx) => (
           <div
             key={idx}
             className={`group relative rounded-xl overflow-hidden border border-zinc-200/30 dark:border-zinc-800/30 bg-zinc-100 dark:bg-[#202026] shadow-sm 
               ${idx === 0 ? 'aspect-[4/3] col-span-2' : 'aspect-square'}
-            `} // Enhancing layout with a focal hero image layout
+            `} 
           >
             <img
               src={image}
@@ -54,7 +51,6 @@ export function MoodboardCard({ data }: MoodboardCardProps) {
               loading="lazy"
             />
             
-            {/* Premium Micro Hover Curtain */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-3">
               <div className="flex items-center gap-1.5 text-white/90 text-[11px] font-medium backdrop-blur-md bg-white/10 px-2 py-1 rounded-md border border-white/10 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                 <Eye className="w-3 h-3" />
@@ -65,7 +61,6 @@ export function MoodboardCard({ data }: MoodboardCardProps) {
         ))}
       </div>
 
-      {/* Global Studio Export Action */}
       <motion.div
         whileHover={{ scale: 1.002 }}
         whileTap={{ scale: 0.998 }}
