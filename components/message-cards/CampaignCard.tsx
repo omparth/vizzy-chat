@@ -1,4 +1,3 @@
-// components/message-cards/CampaignCard.tsx
 'use client'
 
 import { useState } from 'react'
@@ -68,7 +67,6 @@ export function CampaignCard({ data }: CampaignCardProps) {
   return (
     <Card className="w-full max-w-2xl overflow-hidden rounded-[24px] border border-zinc-200/60 bg-white p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all duration-300 dark:border-zinc-800/80 dark:bg-[#0A0A0C] dark:shadow-none">
       
-      {/* Top Header */}
       <div className="flex items-start justify-between gap-4 border-b border-zinc-100/80 pb-5 dark:border-zinc-900">
         <div className="flex items-center gap-3.5">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-amber-50 to-amber-100/50 text-amber-700 border border-amber-200/40 dark:from-amber-950/20 dark:to-amber-900/10 dark:text-amber-400 dark:border-amber-900/30">
@@ -90,9 +88,7 @@ export function CampaignCard({ data }: CampaignCardProps) {
         </div>
       </div>
 
-      {/* Analytical Targets Metadata Grid */}
       <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-3">
-        {/* Goal Block */}
         <div className="rounded-xl border border-zinc-100 bg-zinc-50/40 p-4 transition-colors duration-200 hover:bg-zinc-50/80 dark:border-zinc-900 dark:bg-[#121215]/40 dark:hover:bg-[#121215]/70">
           <div className="flex items-center gap-1.5 text-zinc-400 dark:text-zinc-500">
             <Target className="h-3.5 w-3.5" />
@@ -103,7 +99,6 @@ export function CampaignCard({ data }: CampaignCardProps) {
           </p>
         </div>
 
-        {/* Audience Checklist */}
         <div className="rounded-xl border border-zinc-100 bg-zinc-50/40 p-4 transition-colors duration-200 hover:bg-zinc-50/80 dark:border-zinc-900 dark:bg-[#121215]/40 dark:hover:bg-[#121215]/70">
           <div className="flex items-center gap-1.5 text-zinc-400 dark:text-zinc-500">
             <Compass className="h-3.5 w-3.5" />
@@ -118,7 +113,6 @@ export function CampaignCard({ data }: CampaignCardProps) {
           </div>
         </div>
 
-        {/* Channels and Brand Tones */}
         <div className="rounded-xl border border-zinc-100 bg-zinc-50/40 p-4 transition-colors duration-200 hover:bg-zinc-50/80 dark:border-zinc-900 dark:bg-[#121215]/40 dark:hover:bg-[#121215]/70">
           <div className="flex items-center gap-1.5 text-zinc-400 dark:text-zinc-500">
             <Sparkles className="h-3.5 w-3.5" />
@@ -139,7 +133,6 @@ export function CampaignCard({ data }: CampaignCardProps) {
         </div>
       </div>
 
-      {/* Tabs Controller */}
       <Tabs defaultValue="strategy" className="mt-6 w-full">
         <TabsList className="grid w-full grid-cols-3 rounded-xl bg-zinc-100/80 p-1 dark:bg-[#161619]">
           <TabsTrigger value="strategy" className="text-xs font-medium py-1.5 rounded-lg transition-all duration-200 data-[state=active]:bg-white data-[state=active]:shadow-[0_2px_8px_rgba(0,0,0,0.04)] dark:data-[state=active]:bg-[#222227] dark:text-zinc-400 dark:data-[state=active]:text-zinc-100">
@@ -153,11 +146,9 @@ export function CampaignCard({ data }: CampaignCardProps) {
           </TabsTrigger>
         </TabsList>
 
-        {/* CORE STRATEGY TAB PANEL */}
         <TabsContent value="strategy" className="mt-4 space-y-4 outline-none">
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             
-            {/* Key Message block */}
             <div className="group relative rounded-xl border border-zinc-100 bg-white p-4 transition-all duration-200 hover:border-zinc-200 dark:border-zinc-900 dark:bg-transparent dark:hover:border-zinc-800">
               <span className="text-[9px] font-semibold uppercase tracking-wider text-zinc-400">Key Message</span>
               <p className="mt-1.5 text-xs font-medium text-zinc-800 dark:text-zinc-200 leading-relaxed">{data.strategy?.keyMessage}</p>
@@ -166,7 +157,6 @@ export function CampaignCard({ data }: CampaignCardProps) {
               </Button>
             </div>
 
-            {/* Value Proposition block */}
             <div className="group relative rounded-xl border border-zinc-100 bg-white p-4 transition-all duration-200 hover:border-zinc-200 dark:border-zinc-900 dark:bg-transparent dark:hover:border-zinc-800">
               <span className="text-[9px] font-semibold uppercase tracking-wider text-zinc-400">Value Proposition</span>
               <p className="mt-1.5 text-xs font-medium text-zinc-800 dark:text-zinc-200 leading-relaxed">{data.strategy?.valueProposition}</p>
@@ -175,13 +165,11 @@ export function CampaignCard({ data }: CampaignCardProps) {
               </Button>
             </div>
 
-            {/* Emotion block */}
             <div className="rounded-xl border border-zinc-100 bg-white p-4 dark:border-zinc-900 dark:bg-transparent">
               <span className="text-[9px] font-semibold uppercase tracking-wider text-zinc-400">Customer Emotion Focus</span>
               <p className="mt-1.5 text-xs font-medium text-zinc-800 dark:text-zinc-200">{data.strategy?.emotion}</p>
             </div>
 
-            {/* CTA block */}
             <div className="group relative rounded-xl border border-amber-100 bg-amber-50/10 p-4 dark:border-amber-950/20 dark:bg-amber-950/5">
               <span className="text-[9px] font-semibold uppercase tracking-wider text-amber-600 dark:text-amber-400">Primary Conversion CTA</span>
               <p className="mt-1.5 text-xs font-semibold text-zinc-900 dark:text-zinc-100 flex items-center gap-1">
@@ -193,7 +181,6 @@ export function CampaignCard({ data }: CampaignCardProps) {
             </div>
           </div>
           
-          {/* Performance Forecast */}
           <div className="rounded-xl border border-zinc-100 p-4 dark:border-zinc-900">
             <h4 className="mb-4 text-[10px] font-semibold uppercase tracking-wider text-zinc-400">
               AI Performance Forecast
@@ -222,7 +209,6 @@ export function CampaignCard({ data }: CampaignCardProps) {
           </div>
         </TabsContent>
 
-        {/* FUNNEL SEQUENCE TAB PANEL */}
         <TabsContent value="funnel" className="mt-4 space-y-3 outline-none">
           {data.socialCaptions?.map((item, idx) => (
             <div key={idx} className="group/item flex gap-4 items-start p-4 bg-zinc-50/30 dark:bg-[#121215]/30 border border-zinc-100 dark:border-zinc-900 rounded-xl hover:border-zinc-200 dark:hover:border-zinc-800 transition-all duration-200">
@@ -258,7 +244,6 @@ export function CampaignCard({ data }: CampaignCardProps) {
             </div>
           ))}
 
-          {/* Smart Pinterest Helper Section */}
           <div className="p-3 rounded-xl bg-zinc-50/50 border border-zinc-100 dark:bg-[#121215]/40 dark:border-zinc-900 flex items-center justify-between gap-4">
             <div className="flex items-center gap-2.5 min-w-0">
               <Search className="w-3.5 h-3.5 text-zinc-400 shrink-0" />
@@ -277,7 +262,6 @@ export function CampaignCard({ data }: CampaignCardProps) {
             </Button>
           </div>
 
-          {/* Posting Schedule */}
           <div className="rounded-xl border border-zinc-100 p-4 dark:border-zinc-900">
             <h4 className="mb-3 text-[10px] font-semibold uppercase tracking-wider text-zinc-400">
               Recommended Posting Schedule
@@ -298,7 +282,6 @@ export function CampaignCard({ data }: CampaignCardProps) {
           </div>
         </TabsContent>
 
-        {/* VISUAL ASSETS MOODBOARD PANEL */}
         <TabsContent value="assets" className="mt-4 outline-none">
           <div className="grid grid-cols-2 gap-3">
             {data.visuals && data.visuals.length > 0 ? (
@@ -338,7 +321,6 @@ export function CampaignCard({ data }: CampaignCardProps) {
           </div>
         </TabsContent>
 
-        {/* Bottom Footer Actions */}
         <div className="mt-6 pt-4 border-t border-zinc-100/80 dark:border-zinc-900 flex flex-wrap gap-2 justify-end">
           <Button variant="ghost" className="h-8 rounded-lg text-xs font-medium text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100">
             Refine Campaign
