@@ -7,7 +7,6 @@ const STORAGE_KEYS = {
   RECENT: 'vizzy_recent',
 }
 
-// Safely parse JSON with fallback
 function safeJsonParse<T>(json: string, fallback: T): T {
   try {
     return JSON.parse(json)
@@ -16,7 +15,6 @@ function safeJsonParse<T>(json: string, fallback: T): T {
   }
 }
 
-// Conversations
 export function getConversations(): Conversation[] {
   if (typeof window === 'undefined') return []
   const stored = localStorage.getItem(STORAGE_KEYS.CONVERSATIONS)
@@ -41,7 +39,6 @@ export function deleteConversation(id: string): void {
   localStorage.setItem(STORAGE_KEYS.CONVERSATIONS, JSON.stringify(conversations))
 }
 
-// Preferences
 export function getPreferences(): UserPreferences {
   if (typeof window === 'undefined') {
     return { mode: 'home', theme: 'light' }
@@ -57,7 +54,7 @@ export function savePreferences(preferences: Partial<UserPreferences>): void {
   localStorage.setItem(STORAGE_KEYS.PREFERENCES, JSON.stringify(updated))
 }
 
-// Favorites
+
 export function getFavorites(): string[] {
   if (typeof window === 'undefined') return []
   const stored = localStorage.getItem(STORAGE_KEYS.FAVORITES)
@@ -79,7 +76,6 @@ export function removeFavorite(messageId: string): void {
   localStorage.setItem(STORAGE_KEYS.FAVORITES, JSON.stringify(favorites))
 }
 
-// Generic storage functions for custom keys
 export function loadFromStorage<T>(key: string, fallback: T): T {
   if (typeof window === 'undefined') return fallback
   const stored = localStorage.getItem(key)
@@ -92,7 +88,6 @@ export function saveToStorage<T>(key: string, data: T): void {
   localStorage.setItem(key, JSON.stringify(data))
 }
 
-// Clear all
 export function clearAllStorage(): void {
   if (typeof window === 'undefined') return
   Object.values(STORAGE_KEYS).forEach((key) => {
