@@ -66,7 +66,6 @@ export function ChatArea({
                 >
                  
 
-                  {/* Typography Block */}
                   <div className="mb-8">
                   <div className="space-y-3">
   <p className="text-sm font-medium text-indigo-500">
@@ -84,7 +83,6 @@ export function ChatArea({
                     </p>
                   </div>
 
-                  {/* Suggested Prompts Grid */}
                   <div className="w-full max-w-2xl mt-4">
                     <div className="flex items-center gap-2 justify-center mb-4">
                       <MessageSquare className="w-3.5 h-3.5 text-zinc-400" />
@@ -144,7 +142,6 @@ export function ChatArea({
         </ScrollArea>
       </div>
 
-      {/* Floating Style Fixed Chat Input */}
       <div className="w-full max-w-[760px] mx-auto px-4 md:px-6 pb-4 bg-gradient-to-t from-white via-white/95 to-transparent dark:from-[#121215] dark:via-[#121215]/95 dark:to-transparent pt-4 relative z-20">
         <ChatInput onSubmit={onSubmitMessage} isLoading={isLoading} />
       </div>
