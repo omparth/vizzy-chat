@@ -1,4 +1,3 @@
-//components/message-cards/StoryCard.tsx
 'use client'
 
 import { useState } from 'react'
@@ -23,7 +22,6 @@ export function StoryCard({ data }: StoryCardProps) {
   return (
     <Card className="p-6 bg-white dark:bg-[#0D0D11] border border-zinc-200/80 dark:border-zinc-800/80 rounded-2xl shadow-sm w-full max-w-2xl overflow-hidden transition-all duration-300">
       
-      {/* Narrative Premium Header */}
       <div className="flex items-center justify-between mb-5 pb-4 border-b border-zinc-100 dark:border-zinc-800/60">
         <div className="flex items-center gap-3">
           <div className="p-2 bg-zinc-50 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 rounded-xl border border-zinc-200/50 dark:border-zinc-800/50 shadow-sm">
@@ -40,7 +38,6 @@ export function StoryCard({ data }: StoryCardProps) {
         </div>
       </div>
 
-      {/* Story Overview */}
       <div className="mb-6 rounded-xl border border-zinc-100 dark:border-zinc-800/40 p-4 bg-zinc-50/50 dark:bg-[#13131A]">
         <p className="text-[10px] uppercase tracking-widest text-zinc-400 dark:text-zinc-500 mb-2 font-bold">
           Story Overview
@@ -50,7 +47,6 @@ export function StoryCard({ data }: StoryCardProps) {
         </p>
       </div>
 
-      {/* Story Characters */}
       <div className="mb-6">
         <p className="text-[10px] uppercase tracking-widest text-zinc-400 dark:text-zinc-500 mb-2 font-bold">
           Main Characters
@@ -67,7 +63,6 @@ export function StoryCard({ data }: StoryCardProps) {
         </div>
       </div>
 
-      {/* Accordion Stack Layer */}
       <div className="space-y-2 mb-6">
         <p className="text-[10px] uppercase tracking-widest text-zinc-400 dark:text-zinc-500 mb-2 font-bold">
           Chapters & Script
@@ -104,7 +99,6 @@ export function StoryCard({ data }: StoryCardProps) {
                 </div>
               </button>
 
-              {/* Seamless Height Expansion Container */}
               <AnimatePresence initial={false}>
                 {isCurrentExpanded && (
                   <motion.div
@@ -126,7 +120,6 @@ export function StoryCard({ data }: StoryCardProps) {
         })}
       </div>
 
-      {/* Story Moral */}
       <div className="mb-6 rounded-xl border border-zinc-100 dark:border-zinc-800/40 p-4 bg-zinc-50/20 dark:bg-[#13131A]/40">
         <p className="text-[10px] uppercase tracking-widest text-zinc-400 dark:text-zinc-500 mb-2 font-bold">
           Theme / Moral
@@ -136,7 +129,6 @@ export function StoryCard({ data }: StoryCardProps) {
         </p>
       </div>
 
-      {/* Scene Visualizations */}
       <div className="mb-6">
         <p className="text-[10px] uppercase tracking-widest text-zinc-400 dark:text-zinc-500 mb-3 font-bold flex items-center gap-1.5">
           <ImageIcon className="w-3 h-3" /> Scene Visualizations
@@ -167,7 +159,6 @@ export function StoryCard({ data }: StoryCardProps) {
         </div>
       </div>
 
-      {/* Global Action Button */}
       <Button 
         size="sm" 
         variant="outline" 
