@@ -1,4 +1,3 @@
-//lib/mock-ai.ts
 
 import type {
   Intent,
@@ -16,7 +15,6 @@ import { getRandomItem } from '@/lib/utils'
 import { HOME_STARTER_PROMPTS } from '@/data/home-datasets'
 import { BUSINESS_STARTER_PROMPTS } from '@/data/business-datasets'
 
-// Mock response templates
 const MOCK_RESPONSES: Record<Intent, Record<UserMode, string[]>> = {
   dream: {
     home: [
@@ -116,7 +114,6 @@ const MOCK_RESPONSES: Record<Intent, Record<UserMode, string[]>> = {
   },
 }
 
-// Mock card data generators
 function generateImageCard(intent: Intent, mode: UserMode): ImageCard {
   const mockImages = [
     '/mock-images/sample-1.jpg',
@@ -255,22 +252,17 @@ function generateExperienceCard(intent: Intent, mode: UserMode): ExperienceCard 
   }
 }
 
-// Main mock AI response generator
 export async function generateMockResponse(
   userMessage: string,
   intent: Intent,
   mode: UserMode
 ): Promise<{ response: string; cardData?: CardData }> {
-  // Simulate AI thinking time
   await new Promise((resolve) => setTimeout(resolve, 1500 + Math.random() * 1500))
 
-  // Get random response for this intent and mode
   const responses = MOCK_RESPONSES[intent][mode] || MOCK_RESPONSES.general[mode]
   const response = getRandomItem(responses)
 
-  // Generate card data based on intent
   let cardData: CardData | undefined
-// HOME MODE CUSTOM IMAGES
 
 if (userMessage === 'Visualize a peaceful garden at sunset') {
   return {
