@@ -7,14 +7,12 @@ export function useTheme() {
   const [theme, setTheme] = useState<'light' | 'dark'>('light')
   const [mounted, setMounted] = useState(false)
 
-  // Load saved theme and apply
   useEffect(() => {
     setMounted(true)
     const prefs = getPreferences()
     const savedTheme = prefs.theme || 'light'
     setTheme(savedTheme)
     
-    // Apply to document
     const html = document.documentElement
     if (savedTheme === 'dark') {
       html.classList.add('dark')
@@ -23,7 +21,6 @@ export function useTheme() {
     }
   }, [])
 
-  // Toggle theme
   const toggleTheme = useCallback(() => {
     setTheme((prev) => {
       const newTheme = prev === 'dark' ? 'light' : 'dark'
