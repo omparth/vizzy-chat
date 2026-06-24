@@ -14,7 +14,6 @@ export function GenericCard({ data }: GenericCardProps) {
   return (
     <Card className="p-5 bg-zinc-50/60 dark:bg-[#17171c] border border-zinc-200/80 dark:border-zinc-800/60 rounded-2xl shadow-none w-full max-w-2xl overflow-hidden backdrop-blur-md">
       
-      {/* Structural Meta Indicator */}
       <div className="flex items-center gap-1.5 mb-3.5 opacity-60">
         <Sparkles className="w-3.5 h-3.5 text-zinc-400 dark:text-zinc-500" />
         <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
@@ -22,12 +21,10 @@ export function GenericCard({ data }: GenericCardProps) {
         </span>
       </div>
 
-      {/* Main Core Content Fluid Text Block */}
       <p className="text-xs md:text-sm text-zinc-700 dark:text-zinc-300 mb-5 leading-relaxed font-medium whitespace-pre-wrap selection:bg-indigo-500/10">
         {data.content}
       </p>
 
-      {/* Suggested Follow-ups Option Stack */}
       {data.suggestions && data.suggestions.length > 0 && (
         <div className="pt-4 border-t border-zinc-200/50 dark:border-zinc-800/40">
           <div className="flex items-center gap-1.5 mb-3">
@@ -37,7 +34,6 @@ export function GenericCard({ data }: GenericCardProps) {
             </p>
           </div>
           
-          {/* ChatGPT/Claude Minimalist Suggestion Pill Matrix */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {data.suggestions.map((suggestion, idx) => (
               <motion.div
