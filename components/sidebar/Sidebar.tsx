@@ -1,4 +1,3 @@
-//components/chat/Sidebar.tsx
 'use client'
 
 import {
@@ -45,7 +44,6 @@ export function Sidebar({
   return (
     <div className="flex flex-col h-full w-66 bg-zinc-50 dark:bg-[#17171c] text-zinc-700 dark:text-zinc-300 border-r border-zinc-200/80 dark:border-zinc-800/50 select-none hidden md:flex transition-colors duration-300">
       
-      {/* Premium Re-designed Brand Header */}
       <div className="p-5 flex flex-col justify-center min-h-[76px]">
         <div className="flex items-center gap-3">
           <motion.div 
@@ -66,7 +64,6 @@ export function Sidebar({
         </div>
       </div>
 
-      {/* New Chat Button */}
       <div className="px-3.5 pb-2">
         <motion.button
           whileTap={{ scale: 0.98 }}
@@ -83,7 +80,6 @@ export function Sidebar({
         </motion.button>
       </div>
 
-      {/* Segmented Mode Controls */}
       <div className="px-3.5 py-2">
         <div className="flex p-1 bg-zinc-200/50 dark:bg-[#202026]/60 rounded-xl border border-zinc-200/30 dark:border-zinc-800/30 relative">
           {(['home', 'business'] as const).map((m) => (
@@ -109,12 +105,10 @@ export function Sidebar({
         </div>
       </div>
 
-      {/* History Area Header */}
       <div className="px-4 pt-4 pb-1">
         <p className="text-[10px] font-semibold tracking-widest text-zinc-400 dark:text-zinc-500 uppercase">Recent Chats</p>
       </div>
 
-      {/* Conversations List Container */}
       <ScrollArea className="flex-1 px-2">
         <div className="space-y-0.5 py-1">
           <AnimatePresence initial={false}>
@@ -144,7 +138,6 @@ export function Sidebar({
                         : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200/40 dark:hover:bg-[#202026]/40 hover:text-zinc-900 dark:hover:text-zinc-200'
                     }`}
                   >
-                    {/* Active Chat Soft Blend Animation */}
                     {isActive && (
                       <motion.div
                         layoutId="activeChatBg"
@@ -165,7 +158,6 @@ export function Sidebar({
                       </div>
                     </button>
 
-                    {/* Smooth Fade-in Trash Icon */}
                     <button
                       onClick={(e) => {
                         e.stopPropagation()
@@ -184,7 +176,6 @@ export function Sidebar({
         </div>
       </ScrollArea>
 
-      {/* Footer Controls */}
       <div className="p-3 border-t border-zinc-200/60 dark:border-zinc-800/50 bg-zinc-100/50 dark:bg-[#121217]/40 space-y-0.5">
         {onOpenFavorites && (
           <Button
