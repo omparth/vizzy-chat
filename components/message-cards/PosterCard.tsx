@@ -14,7 +14,6 @@ export function PosterCard({ data }: PosterCardProps) {
   return (
     <Card className="p-5 bg-zinc-50/60 dark:bg-[#17171c] border border-zinc-200/80 dark:border-zinc-800/60 rounded-2xl shadow-none w-full max-w-xl overflow-hidden backdrop-blur-md">
       
-      {/* Studio Header Meta block */}
       <div className="mb-4">
         <div className="flex items-center gap-1.5 mb-1">
           <Image className="w-3.5 h-3.5 text-indigo-500 dark:text-purple-400" />
@@ -29,7 +28,6 @@ export function PosterCard({ data }: PosterCardProps) {
         )}
       </div>
 
-      {/* Cinematic Studio Ratio Poster Preview Container */}
       <div className="group relative mb-5 bg-zinc-100 dark:bg-[#202026] rounded-xl overflow-hidden aspect-[2/3] border border-zinc-200/40 dark:border-zinc-800/40 shadow-sm flex items-center justify-center">
         <img
           src={data.imageUrl}
@@ -38,11 +36,9 @@ export function PosterCard({ data }: PosterCardProps) {
           loading="lazy"
         />
 
-        {/* Premium Dark Vignette Floating Overlay on Image Hover */}
         <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/40 via-zinc-950/0 to-zinc-950/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
       </div>
 
-      {/* Structured Studio Design Blueprint Notes */}
       {data.designNotes && data.designNotes.length > 0 && (
         <div className="mb-5 p-3.5 bg-white dark:bg-[#121215] border border-zinc-200/60 dark:border-zinc-800/50 rounded-xl">
           <div className="flex items-center gap-1.5 mb-2.5">
@@ -63,7 +59,6 @@ export function PosterCard({ data }: PosterCardProps) {
         </div>
       )}
 
-      {/* Action Controller Block */}
       <div className="flex gap-2.5 pt-1 border-t border-zinc-200/50 dark:border-zinc-800/40">
         <Button 
           size="sm" 
