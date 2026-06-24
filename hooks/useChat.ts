@@ -1,4 +1,3 @@
-//hooks/useChat.ts
 'use client'
 
 import { useState, useCallback, useEffect } from 'react'
@@ -16,7 +15,6 @@ export function useChat(initialConversationId?: string) {
   const [currentConversation, setCurrentConversation] = useState<Conversation | null>(null)
   const [isLoading, setIsLoading] = useState(false)
 
-  // Initialize conversations from localStorage
   useEffect(() => {
     const saved = getConversations()
     setConversations(saved)
@@ -33,7 +31,6 @@ export function useChat(initialConversationId?: string) {
     }
   }, [initialConversationId])
 
-  // Create new conversation
   const createConversation = useCallback((title: string, mode: 'home' | 'business') => {
     const conversation: Conversation = {
       id: generateId(),
@@ -49,7 +46,6 @@ export function useChat(initialConversationId?: string) {
     return conversation
   }, [])
 
-  // Add message to current conversation
   const addMessage = useCallback(
     async (
       content: string,
@@ -83,7 +79,6 @@ export function useChat(initialConversationId?: string) {
     [currentConversation]
   )
 
-  // Switch conversation
   const switchConversation = useCallback((id: string) => {
     const found = conversations.find((c) => c.id === id)
     if (found) {
@@ -91,7 +86,6 @@ export function useChat(initialConversationId?: string) {
     }
   }, [conversations])
 
-  // Update conversation title
   const updateTitle = useCallback(
     (newTitle: string) => {
       if (!currentConversation) return
