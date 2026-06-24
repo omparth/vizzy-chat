@@ -100,7 +100,6 @@ export default function Page() {
 
   return (
     <div className="flex h-screen bg-background text-foreground overflow-hidden font-sans antialiased">
-      {/* Sidebar Component */}
       <Sidebar
         conversations={chat.conversations}
         currentId={chat.currentConversation?.id || null}
@@ -115,7 +114,6 @@ export default function Page() {
         onOpenFavorites={() => setShowFavorites(true)}
       />
 
-      {/* Main Chat Area Layout */}
       <main className="flex-1 flex flex-col relative min-w-0 bg-content-background transition-colors duration-200">
         <ChatArea
           messages={messages}
@@ -126,7 +124,6 @@ export default function Page() {
         />
       </main>
 
-      {/* Premium Drawer Overlay for Favorites */}
       <FavoritesPanel 
         isOpen={showFavorites} 
         onClose={() => setShowFavorites(false)} 
