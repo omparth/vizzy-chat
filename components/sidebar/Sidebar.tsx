@@ -42,7 +42,7 @@ export function Sidebar({
   const { theme, setTheme } = useTheme()
 
   return (
-    <div className="flex flex-col h-full w-66 bg-zinc-50 dark:bg-[#17171c] text-zinc-700 dark:text-zinc-300 border-r border-zinc-200/80 dark:border-zinc-800/50 select-none hidden md:flex transition-colors duration-300">
+    <div className="flex flex-col h-full w-66 bg-zinc-50 dark:bg-[#17171c] text-zinc-700 dark:text-zinc-300 border-r border-zinc-200/80 dark:border-zinc-800/50 select-none flex transition-colors duration-300">
       
       <div className="p-5 flex flex-col justify-center min-h-[76px]">
         <div className="flex items-center gap-3">

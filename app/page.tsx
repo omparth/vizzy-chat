@@ -10,6 +10,7 @@ import { useTheme } from '@/hooks/useTheme'
 import { analyzeIntent } from '@/lib/intent-router'
 import { generateMockResponse } from '@/lib/mock-ai'
 import type { Message } from '@/types'
+import { Menu, X } from 'lucide-react'
 
 export default function Page() {
   const { mounted } = useTheme()
@@ -17,6 +18,8 @@ export default function Page() {
   const chat = useChat()
   
   const [showFavorites, setShowFavorites] = useState(false)
+  const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false)
+
   const pendingMessageRef = useRef<string | null>(null)
 
   const messages = chat.currentConversation?.messages || []
@@ -100,21 +103,79 @@ export default function Page() {
 
   return (
     <div className="flex h-screen bg-background text-foreground overflow-hidden font-sans antialiased">
-      <Sidebar
-        conversations={chat.conversations}
-        currentId={chat.currentConversation?.id || null}
-        mode={mode}
-        onNew={() => {
-          const title = `New Chat - ${new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}`
-          chat.createConversation(title, mode)
-        }}
-        onSelect={chat.switchConversation}
-        onModeChange={setModeValue}
-        onDeleteConversation={chat.deleteConversation}
-        onOpenFavorites={() => setShowFavorites(true)}
-      />
-
-      <main className="flex-1 flex flex-col relative min-w-0 bg-content-background transition-colors duration-200">
+      {/* Mobile Header */}
+      <div className="md:hidden absolute top-0 left-0 right-0 h-14 border-b bg-background flex items-center justify-between px-4 z-40">
+        <button onClick={() => setMobileSidebarOpen(true)}>
+          <Menu className="w-5 h-5" />
+        </button>
+  
+        <span className="font-semibold">
+          Vizzy
+        </span>
+      </div>
+  
+      {/* Desktop Sidebar */}
+      <div className="hidden md:flex">
+        <Sidebar
+          conversations={chat.conversations}
+          currentId={chat.currentConversation?.id || null}
+          mode={mode}
+          onNew={() => {
+            const title = `New Chat - ${new Date().toLocaleDateString('en-US', {
+              month: 'short',
+              day: 'numeric',
+            })}`
+            chat.createConversation(title, mode)
+          }}
+          onSelect={chat.switchConversation}
+          onModeChange={setModeValue}
+          onDeleteConversation={chat.deleteConversation}
+          onOpenFavorites={() => setShowFavorites(true)}
+        />
+      </div>
+  
+      {/* Mobile Sidebar Drawer */}
+      {mobileSidebarOpen && (
+        <div className="fixed inset-0 z-50 md:hidden">
+  
+          <div
+            className="absolute inset-0 bg-black/50"
+            onClick={() => setMobileSidebarOpen(false)}
+          />
+  
+          <div className="relative w-72 h-full bg-white dark:bg-[#17171c]">
+  
+            <button
+              onClick={() => setMobileSidebarOpen(false)}
+              className="absolute top-4 right-4 z-50"
+            >
+              <X className="w-5 h-5" />
+            </button>
+  
+            <Sidebar
+              conversations={chat.conversations}
+              currentId={chat.currentConversation?.id || null}
+              mode={mode}
+              onNew={() => {
+                chat.createConversation('New Chat', mode)
+                setMobileSidebarOpen(false)
+              }}
+              onSelect={(id) => {
+                chat.switchConversation(id)
+                setMobileSidebarOpen(false)
+              }}
+              onModeChange={setModeValue}
+              onDeleteConversation={chat.deleteConversation}
+              onOpenFavorites={() => {
+                setShowFavorites(true)
+                setMobileSidebarOpen(false)
+              }}
+            />
+          </div>
+        </div>
+      )}
+  
+      <main className="flex-1 flex flex-col relative min-w-0 bg-content-background transition-colors duration-200 pt-14 md:pt-0">
         <ChatArea
           messages={messages}
           isLoading={chat.isLoading}
@@ -127,6 +188,8 @@ export default function Page() {
       <FavoritesPanel 
         isOpen={showFavorites} 
         onClose={() => setShowFavorites(false)} 
+  
+
       />
     </div>
   )
