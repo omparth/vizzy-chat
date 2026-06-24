@@ -19,7 +19,6 @@ export function ChatInput({
   const [message, setMessage] = useState('')
   const textareaRef = useRef<HTMLTextAreaElement>(null)
 
-  // Auto-resize textarea logic perfectly preserved
   useEffect(() => {
     if (textareaRef.current) {
       textareaRef.current.style.height = 'auto'
@@ -49,7 +48,6 @@ export function ChatInput({
 
   return (
     <form onSubmit={handleSubmit} className="w-full relative">
-      {/* ChatGPT/Claude Style Capsule Container */}
       <div
   className={`w-full flex flex-col bg-zinc-50 dark:bg-[#17171c] border border-zinc-200 dark:border-zinc-800/80 rounded-2xl transition-all duration-200 focus-within:border-zinc-300 dark:focus-within:border-zinc-700/80 focus-within:shadow-sm ${
     isLoading
@@ -57,7 +55,6 @@ export function ChatInput({
       : ''
   }`}
 >        
-        {/* Text Area Input */}
         <textarea
           ref={textareaRef}
           value={message}
@@ -69,10 +66,8 @@ export function ChatInput({
           className="w-full px-4 pt-4 pb-2 bg-transparent text-zinc-800 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-500 focus:outline-none resize-none text-sm min-h-[44px] leading-relaxed max-h-[200px]"
         />
 
-        {/* Dynamic Action Toolbar (Inside Capsule Box) */}
         <div className="flex items-center justify-between px-3 pb-3 pt-1.5">
           
-          {/* Left Controls: Plus/Attachment & Voice */}
           <div className="flex items-center gap-1.5">
             <Button
               type="button"
@@ -97,7 +92,6 @@ export function ChatInput({
             </Button>
           </div>
 
-          {/* Right Action: ChatGPT Style Circular Up Arrow Button */}
           <motion.div
             animate={{ scale: isFormEmpty ? 0.96 : 1 }}
             transition={{ type: "spring", stiffness: 400, damping: 25 }}
@@ -122,7 +116,6 @@ export function ChatInput({
         </div>
       </div>
 
-      {/* Small Privacy Disclaimer (ChatGPT Signature Touch) */}
       <div className="text-center mt-2">
         <p className="text-[10px] text-zinc-400 dark:text-zinc-600 tracking-wide font-medium">
           Vizzy can make mistakes. Consider checking important information.
