@@ -30,7 +30,6 @@ export function FavoritesPanel({ isOpen, onClose }: FavoritesPanelProps) {
   return (
     <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
       <div className="bg-background rounded-lg shadow-lg w-full max-w-2xl max-h-[80vh] flex flex-col">
-        {/* Header */}
         <div className="border-b border-border p-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Heart className="w-5 h-5 text-red-500" />
@@ -45,7 +44,6 @@ export function FavoritesPanel({ isOpen, onClose }: FavoritesPanelProps) {
           </button>
         </div>
 
-        {/* Filter Tags */}
         {allTags.length > 0 && (
           <div className="border-b border-border p-4">
             <p className="text-sm font-medium mb-2">Filter by tags:</p>
@@ -71,7 +69,6 @@ export function FavoritesPanel({ isOpen, onClose }: FavoritesPanelProps) {
           </div>
         )}
 
-        {/* Favorites List */}
         <ScrollArea className="flex-1">
           <div className="p-4 space-y-3">
             {filteredFavorites.length === 0 ? (
@@ -120,7 +117,6 @@ export function FavoritesPanel({ isOpen, onClose }: FavoritesPanelProps) {
           </div>
         </ScrollArea>
 
-        {/* Footer */}
         {favorites.length > 0 && (
           <div className="border-t border-border p-4 flex gap-2 justify-end">
             <Button variant="outline" size="sm" onClick={exportFavorites}>
