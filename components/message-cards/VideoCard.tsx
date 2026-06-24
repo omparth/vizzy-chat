@@ -13,8 +13,6 @@ interface VideoCardProps {
 export function VideoCard({ data }: VideoCardProps) {
   return (
     <Card className="p-5 bg-zinc-50/60 dark:bg-[#17171c] border border-zinc-200/80 dark:border-zinc-800/60 rounded-2xl shadow-none w-full max-w-2xl overflow-hidden backdrop-blur-md">
-      
-      {/* Studio Production Header */}
       <div className="flex items-center gap-2 mb-4.5">
         <div className="p-2 bg-indigo-50 dark:bg-[#202026] text-indigo-500 dark:text-purple-400 rounded-xl border border-indigo-100/30 dark:border-zinc-700/30">
           <Clapperboard className="w-4 h-4" />
@@ -24,7 +22,6 @@ export function VideoCard({ data }: VideoCardProps) {
         </h3>
       </div>
 
-      {/* 1. Curated Widescreen Storyboard Grid */}
       <div className="mb-5">
         <div className="flex items-center gap-1.5 mb-2.5 opacity-70">
           <Film className="w-3.5 h-3.5 text-zinc-400" />
@@ -45,7 +42,6 @@ export function VideoCard({ data }: VideoCardProps) {
                 className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                 loading="lazy"
               />
-              {/* Premium Lens Shutter Overlap */}
               <div className="absolute inset-0 bg-zinc-950/0 group-hover:bg-zinc-950/40 transition-colors duration-300 flex items-center justify-center backdrop-blur-[1px] group-hover:backdrop-blur-none">
                 <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transform scale-75 group-hover:scale-100 transition-all duration-300">
                   <Play className="w-3.5 h-3.5 text-white fill-white ml-0.5" />
@@ -56,7 +52,6 @@ export function VideoCard({ data }: VideoCardProps) {
         </div>
       </div>
 
-      {/* 2. Linear Timeline Shot List */}
       <div className="mb-5 p-4 bg-white dark:bg-[#121215] border border-zinc-200/60 dark:border-zinc-800/50 rounded-xl">
         <div className="flex items-center gap-1.5 mb-3 opacity-70">
           <ListOrdered className="w-3.5 h-3.5 text-zinc-400" />
@@ -79,7 +74,6 @@ export function VideoCard({ data }: VideoCardProps) {
         </ul>
       </div>
 
-      {/* 3. High-Fidelity Motion Core Description Box */}
       <div className="mb-5 p-4 bg-zinc-100/40 dark:bg-[#1a1a22]/40 border border-zinc-200/30 dark:border-zinc-800/30 rounded-xl relative overflow-hidden">
         <div className="flex items-center gap-1.5 mb-1.5 opacity-70">
           <Move3d className="w-3.5 h-3.5 text-zinc-400" />
@@ -92,7 +86,6 @@ export function VideoCard({ data }: VideoCardProps) {
         </p>
       </div>
 
-      {/* Master Assets Package Dispatcher */}
       <motion.div
         whileHover={{ scale: 1.002 }}
         whileTap={{ scale: 0.998 }}
