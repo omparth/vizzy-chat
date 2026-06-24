@@ -1,4 +1,3 @@
-//components/chat/StreamingText.tsx
 'use client'
 
 import { useEffect, useState } from 'react'
