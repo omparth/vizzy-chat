@@ -5,12 +5,10 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-// Generate unique IDs
 export function generateId(): string {
   return `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`
 }
 
-// Format timestamp to readable date
 export function formatDate(timestamp: number): string {
   const date = new Date(timestamp)
   const now = new Date()
@@ -30,17 +28,14 @@ export function formatDate(timestamp: number): string {
   })
 }
 
-// Truncate text
 export function truncate(text: string, length: number): string {
   return text.length > length ? text.substring(0, length) + '...' : text
 }
 
-// Get random item from array
 export function getRandomItem<T>(array: T[]): T {
   return array[Math.floor(Math.random() * array.length)]
 }
 
-// Sleep for async operations
 export function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }
