@@ -1,4 +1,3 @@
-// components/message-cards/ExperienceCard.tsx
 'use client'
 
 import { useState } from 'react'
@@ -52,7 +51,6 @@ export function ExperienceCard({ data }: ExperienceCardProps) {
   return (
     <Card className="w-full max-w-2xl overflow-hidden rounded-[24px] border border-zinc-200/60 bg-white p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all duration-300 dark:border-zinc-800/80 dark:bg-[#0A0A0C] dark:shadow-none">
       
-      {/* Top Premium Header */}
       <div className="flex items-start justify-between gap-4 border-b border-zinc-100/80 pb-5 dark:border-zinc-900">
         <div className="flex items-center gap-3.5">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-50 to-indigo-100/50 text-indigo-700 border border-indigo-200/40 dark:from-indigo-950/20 dark:to-indigo-900/10 dark:text-indigo-400 dark:border-indigo-900/30">
@@ -69,9 +67,7 @@ export function ExperienceCard({ data }: ExperienceCardProps) {
         </div>
       </div>
 
-      {/* Overview Metadata Section */}
       <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
-        {/* Target Audience */}
         <div className="rounded-xl border border-zinc-100 bg-zinc-50/40 p-4 transition-colors duration-200 hover:bg-zinc-50/80 dark:border-zinc-900 dark:bg-[#121215]/40 dark:hover:bg-[#121215]/70">
           <div className="flex items-center gap-1.5 text-zinc-400 dark:text-zinc-500">
             <Users className="h-3.5 w-3.5" />
@@ -82,7 +78,6 @@ export function ExperienceCard({ data }: ExperienceCardProps) {
           </p>
         </div>
 
-        {/* Primary Objective */}
         <div className="rounded-xl border border-zinc-100 bg-zinc-50/40 p-4 transition-colors duration-200 hover:bg-zinc-50/80 dark:border-zinc-900 dark:bg-[#121215]/40 dark:hover:bg-[#121215]/70">
           <div className="flex items-center gap-1.5 text-zinc-400 dark:text-zinc-500">
             <Target className="h-3.5 w-3.5" />
@@ -94,7 +89,6 @@ export function ExperienceCard({ data }: ExperienceCardProps) {
         </div>
       </div>
 
-      {/* Main Tabs Navigation */}
       <Tabs defaultValue="journey" className="mt-6 w-full">
         <TabsList className="grid w-full grid-cols-3 rounded-xl bg-zinc-100/80 p-1 dark:bg-[#161619]">
           <TabsTrigger value="journey" className="text-xs font-medium py-1.5 rounded-lg transition-all duration-200 data-[state=active]:bg-white data-[state=active]:shadow-[0_2px_8px_rgba(0,0,0,0.04)] dark:data-[state=active]:bg-[#222227] dark:text-zinc-400 dark:data-[state=active]:text-zinc-100">
@@ -108,12 +102,10 @@ export function ExperienceCard({ data }: ExperienceCardProps) {
           </TabsTrigger>
         </TabsList>
 
-        {/* JOURNEY TAB PANEL */}
         <TabsContent value="journey" className="mt-5 space-y-3 outline-none">
           <div className="relative border-l border-zinc-100 pl-4 ml-2 space-y-5 dark:border-zinc-900">
             {data.journey?.map((step, idx) => (
               <div key={idx} className="group relative">
-                {/* Timeline Node Point */}
                 <div className="absolute -left-[21px] top-0.5 flex h-3 w-3 items-center justify-center rounded-full bg-zinc-200 dark:bg-zinc-800 group-hover:bg-indigo-500 transition-colors duration-200">
                   <div className="h-1.5 w-1.5 rounded-full bg-white dark:bg-[#0A0A0C]" />
                 </div>
@@ -144,7 +136,6 @@ export function ExperienceCard({ data }: ExperienceCardProps) {
             ))}
           </div>
           
-          {/* Journey Outcome Banner */}
           <div className="mt-4 rounded-xl border border-indigo-100/60 bg-indigo-50/5 p-4 dark:border-indigo-950/40 dark:bg-indigo-950/5">
             <div className="flex items-center gap-1.5 text-indigo-600 dark:text-indigo-400">
               <Award className="h-3.5 w-3.5" />
@@ -156,7 +147,6 @@ export function ExperienceCard({ data }: ExperienceCardProps) {
           </div>
         </TabsContent>
 
-        {/* TOUCHPOINTS TAB PANEL */}
         <TabsContent value="touchpoints" className="mt-4 space-y-3 outline-none">
           <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
             {data.touchpoints?.map((point, idx) => (
@@ -176,7 +166,6 @@ export function ExperienceCard({ data }: ExperienceCardProps) {
           </div>
         </TabsContent>
 
-        {/* MOODBOARD PANEL */}
         <TabsContent value="assets" className="mt-4 outline-none">
           <div className="grid grid-cols-2 gap-3">
             {data.visuals && data.visuals.length > 0 ? (
@@ -198,7 +187,6 @@ export function ExperienceCard({ data }: ExperienceCardProps) {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
                     loading="lazy"
                     onError={(e) => {
-                      // Fallback if image doesn't exist locally yet
                       e.currentTarget.style.display = 'none';
                       e.currentTarget.parentElement?.classList.add('p-8', 'text-center');
                     }}
@@ -214,7 +202,6 @@ export function ExperienceCard({ data }: ExperienceCardProps) {
           </div>
         </TabsContent>
 
-        {/* Premium Action Footer */}
         <div className="mt-6 pt-4 border-t border-zinc-100/80 dark:border-zinc-900 flex flex-wrap gap-2 justify-end">
           <Button variant="ghost" className="h-8 rounded-lg text-xs font-medium text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100">
             Modify Flow
